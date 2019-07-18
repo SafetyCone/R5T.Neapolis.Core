@@ -21,11 +21,13 @@ namespace R5T.Neapolis
         private string Arguments { get; set; } = StringArgumentsBuilder.GetInitialArguments();
 
 
-        public void AddToken(string token)
+        public IArgumentsBuilder AddToken(string token)
         {
             var appendix = $"{Constants.ArgumentTokenSeparator}{token}"; // Note beginning token separator.
 
             this.Arguments = this.Arguments.Append(appendix);
+
+            return this;
         }
 
         public string Build()

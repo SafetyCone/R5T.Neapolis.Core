@@ -11,7 +11,7 @@ namespace R5T.Neapolis
         /// <summary>
         /// Adds a token to the arguments string.
         /// </summary>
-        void AddToken(string token);
+        IArgumentsBuilder AddToken(string token);
 
         /// <summary>
         /// Builds the arguments string.
