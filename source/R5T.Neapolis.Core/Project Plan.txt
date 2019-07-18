@@ -1,7 +1,11 @@
 R5T.Neapolis.Core - A library containing the core Neapolis functionality for building command arguments.
 
+The core Neapolis functionality.
+
+
 Goals
 
+Create builder infrastructure that allows a fluent-API for building command-line argument strings.
 
 
 Dependencies
