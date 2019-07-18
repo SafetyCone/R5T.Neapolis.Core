@@ -9,5 +9,3 @@ Create builder infrastructure that allows a fluent-API for building command-line
 
 
 Dependencies
-
-* R5T.NetStandard.Types - For Append() string extension.

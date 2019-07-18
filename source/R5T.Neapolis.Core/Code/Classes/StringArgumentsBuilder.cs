@@ -1,6 +1,5 @@
 ﻿using System;
-
-using R5T.NetStandard;
+using System.Text;
 
 
 namespace R5T.Neapolis
@@ -15,24 +14,34 @@ namespace R5T.Neapolis
             return output;
         }
 
+        private static StringBuilder GetInitialArgumentsBuilder()
+        {
+            var value = StringArgumentsBuilder.GetInitialArguments();
+
+            var output = new StringBuilder(value);
+            return output;
+        }
+
         #endregion
 
 
-        private string Arguments { get; set; } = StringArgumentsBuilder.GetInitialArguments();
+        private StringBuilder ArgumentsBuilder { get; set; } = StringArgumentsBuilder.GetInitialArgumentsBuilder();
 
 
         public IArgumentsBuilder AddToken(string token)
         {
             var appendix = $"{Constants.ArgumentTokenSeparator}{token}"; // Note beginning token separator.
 
-            this.Arguments = this.Arguments.Append(appendix);
+            this.ArgumentsBuilder = this.ArgumentsBuilder.Append(appendix);
 
             return this;
         }
 
         public string Build()
         {
-            return this.Arguments;
+            var arguments = this.ArgumentsBuilder.ToString();
+
+            return arguments;
         }
     }
 }
