@@ -1,0 +1,4 @@
+R5T.Neapolis.Core.Construction - A construction console-app for the library R5T.Neapolis.Core.
+
+Goals
+
