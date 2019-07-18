@@ -2,3 +2,8 @@ R5T.Neapolis.Core - A library containing the core Neapolis functionality for bui
 
 Goals
 
+
+
+Dependencies
+
+* R5T.NetStandard.Types - For Append() string extension.
