@@ -5,7 +5,8 @@ namespace R5T.Neapolis
 {
     public static class IArgumentsBuilderExtensions
     {
-        public static IArgumentsBuilder AddToken(this IArgumentsBuilder argumentsBuilder, IArgumentToken token)
+        public static T AddToken<T>(this T argumentsBuilder, IArgumentToken token)
+            where T: IArgumentsBuilder
         {
             var tokenValue = token.GetTokenValue();
 
@@ -14,28 +15,32 @@ namespace R5T.Neapolis
             return argumentsBuilder;
         }
 
-        public static IArgumentsBuilder AddName(this IArgumentsBuilder argumentsBuilder, IArgumentName name)
+        public static T AddName<T>(this T argumentsBuilder, IArgumentName name)
+            where T: IArgumentsBuilder
         {
             argumentsBuilder.AddToken(name);
 
             return argumentsBuilder;
         }
 
-        public static IArgumentsBuilder AddValue(this IArgumentsBuilder argumentsBuilder, IArgumentValue value)
+        public static T AddValue<T>(this T argumentsBuilder, IArgumentValue value)
+            where T : IArgumentsBuilder
         {
             argumentsBuilder.AddToken(value);
 
             return argumentsBuilder;
         }
 
-        public static IArgumentsBuilder AddValue(this IArgumentsBuilder argumentsBuilder, string value)
+        public static T AddValue<T>(this T argumentsBuilder, string value)
+            where T : IArgumentsBuilder
         {
             argumentsBuilder.AddToken(value);
 
             return argumentsBuilder;
         }
 
-        public static IArgumentsBuilder AddPath(this IArgumentsBuilder argumentsBuilder, string path)
+        public static T AddPath<T>(this T argumentsBuilder, string path)
+            where T : IArgumentsBuilder
         {
             var token = $@"""{path}""";
 
@@ -44,7 +49,8 @@ namespace R5T.Neapolis
             return argumentsBuilder;
         }
 
-        public static IArgumentsBuilder AddVerb(this IArgumentsBuilder argumentsBuilder, VerbArgument verb)
+        public static T AddVerb<T>(this T argumentsBuilder, VerbArgument verb)
+            where T : IArgumentsBuilder
         {
             argumentsBuilder.AddName(verb.Name);
 
@@ -55,25 +61,60 @@ namespace R5T.Neapolis
             return argumentsBuilder;
         }
 
-        public static IVerbArgumentsBuilder AddVerb(this IArgumentsBuilder argumentsBuilder, string name)
+        public static T AddVerb<T>(this T argumentsBuilder, string name, Action<IArgumentsBuilder> configureVerbArguments)
+            where T : IArgumentsBuilder
         {
-            var verbArgumentsBuilder = new VerbArgumentsBuilder(name, argumentsBuilder);
+            var verb = new VerbArgument(name);
 
-            return verbArgumentsBuilder;
+            configureVerbArguments(verb.Arguments);
+
+            argumentsBuilder.AddVerb(verb);
+
+            return argumentsBuilder;
         }
 
         /// <summary>
         /// Allows adding an value-less option that turned on just by being present.
         /// </summary>
-        public static IArgumentsBuilder AddFlag(this IArgumentsBuilder argumentsBuilder, IArgumentName flag)
+        public static T AddFlag<T>(this T argumentsBuilder, IArgumentName flag)
+            where T : IArgumentsBuilder
         {
             argumentsBuilder.AddName(flag);
 
             return argumentsBuilder;
         }
 
-        public static IArgumentsBuilder AddNameValue(this IArgumentsBuilder argumentsBuilder, NameValueArgument nameValue)
+        public static T AddFlagShort<T>(this T argumentsBuilder, string flag)
+            where T : IArgumentsBuilder
         {
+            argumentsBuilder.AddName(new ShortArgumentName(flag));
+
+            return argumentsBuilder;
+        }
+
+        public static T AddFlagFull<T>(this T argumentsBuilder, string flag)
+            where T : IArgumentsBuilder
+        {
+            argumentsBuilder.AddName(new FullArgumentName(flag));
+
+            return argumentsBuilder;
+        }
+
+        public static T AddNameValue<T>(this T argumentsBuilder, NameValueArgument nameValue)
+            where T : IArgumentsBuilder
+        {
+            argumentsBuilder.AddToken(nameValue);
+
+            return argumentsBuilder;
+        }
+
+        public static T AddNameValue<T>(this T argumentsBuilder, Action<NameValueArgument> configureNameValue)
+            where T : IArgumentsBuilder
+        {
+            var nameValue = new NameValueArgument();
+
+            configureNameValue(nameValue);
+
             argumentsBuilder.AddToken(nameValue);
 
             return argumentsBuilder;
