@@ -3,11 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R5T.Neapolis.Core.Construction", "R5T.Neapolis.Core.Construction\R5T.Neapolis.Core.Construction.csproj", "{1AA37BD5-08C5-404C-8C9B-C2181003017C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "R5T.Neapolis.Core.Construction", "R5T.Neapolis.Core.Construction\R5T.Neapolis.Core.Construction.csproj", "{1AA37BD5-08C5-404C-8C9B-C2181003017C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R5T.Neapolis.Core", "R5T.Neapolis.Core\R5T.Neapolis.Core.csproj", "{3D68C437-EC99-44F1-B0FA-379FE7C90FF3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "R5T.Neapolis.Core", "R5T.Neapolis.Core\R5T.Neapolis.Core.csproj", "{3D68C437-EC99-44F1-B0FA-379FE7C90FF3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "R5T.Neapolis.Core.Testing", "R5T.Neapolis.Core.Testing\R5T.Neapolis.Core.Testing.csproj", "{4D6E8834-E1DD-4FC1-822E-D5F49D924F9F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "R5T.Neapolis.Core.Testing", "R5T.Neapolis.Core.Testing\R5T.Neapolis.Core.Testing.csproj", "{4D6E8834-E1DD-4FC1-822E-D5F49D924F9F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_Dependencies", "_Dependencies", "{F1358F3B-723A-4BDA-BE97-CAC5BB2FE5F0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "R5T.NetStandard.TypedString", "..\..\R5T.NetStandard.TypedString\source\R5T.NetStandard.TypedString\R5T.NetStandard.TypedString.csproj", "{E5B83D58-84B5-469E-BA55-1EB5F5578DB1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,9 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{1AA37BD5-08C5-404C-8C9B-C2181003017C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -58,5 +59,26 @@ Global
 		{4D6E8834-E1DD-4FC1-822E-D5F49D924F9F}.Release|x64.Build.0 = Release|Any CPU
 		{4D6E8834-E1DD-4FC1-822E-D5F49D924F9F}.Release|x86.ActiveCfg = Release|Any CPU
 		{4D6E8834-E1DD-4FC1-822E-D5F49D924F9F}.Release|x86.Build.0 = Release|Any CPU
+		{E5B83D58-84B5-469E-BA55-1EB5F5578DB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5B83D58-84B5-469E-BA55-1EB5F5578DB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5B83D58-84B5-469E-BA55-1EB5F5578DB1}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{E5B83D58-84B5-469E-BA55-1EB5F5578DB1}.Debug|x64.Build.0 = Debug|Any CPU
+		{E5B83D58-84B5-469E-BA55-1EB5F5578DB1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{E5B83D58-84B5-469E-BA55-1EB5F5578DB1}.Debug|x86.Build.0 = Debug|Any CPU
+		{E5B83D58-84B5-469E-BA55-1EB5F5578DB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5B83D58-84B5-469E-BA55-1EB5F5578DB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5B83D58-84B5-469E-BA55-1EB5F5578DB1}.Release|x64.ActiveCfg = Release|Any CPU
+		{E5B83D58-84B5-469E-BA55-1EB5F5578DB1}.Release|x64.Build.0 = Release|Any CPU
+		{E5B83D58-84B5-469E-BA55-1EB5F5578DB1}.Release|x86.ActiveCfg = Release|Any CPU
+		{E5B83D58-84B5-469E-BA55-1EB5F5578DB1}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E5B83D58-84B5-469E-BA55-1EB5F5578DB1} = {F1358F3B-723A-4BDA-BE97-CAC5BB2FE5F0}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D5116ECB-7638-48C9-980A-72EE4EAF5074}
 	EndGlobalSection
 EndGlobal
